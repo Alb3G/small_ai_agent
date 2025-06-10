@@ -1,4 +1,5 @@
 import os
+from constants import MAX_CHARS
 
 def is_directory(path):
 	return os.path.isdir(path)
@@ -17,7 +18,6 @@ def file_in_working_dir(working_directory, directory):
 	return False
 
 def get_files_info(working_directory, directory=None):
-	# Que pasa si directory es None porque no se le pasa ningun argumento????
 	if directory is None:
 		directory = "."
 		
@@ -41,7 +41,3 @@ def get_files_info(working_directory, directory=None):
 			return f"Error: {e.strerror}"
 		
 		print(f"- {file}: file_size={file_size} bytes, is_dir={is_directory(file_path)}")
-
-def get_file_content(working_directory, file_path):
-	if not file_in_working_dir(working_directory, file_path):
-		return f'Error: Cannot read "{file_path}" as it is outside the permitted working directory'
