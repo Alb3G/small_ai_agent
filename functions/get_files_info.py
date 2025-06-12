@@ -1,5 +1,6 @@
 import os
 from constants import MAX_CHARS
+from pathlib import Path
 
 def is_directory(path):
 	return os.path.isdir(path)
@@ -8,14 +9,14 @@ def file_in_working_dir(working_directory, directory):
 	if directory is None or directory == ".":
 		return True
 
-	working_directory_abs_path = os.path.abspath(working_directory)
-	wd_files =  os.listdir(working_directory_abs_path)
+	base = Path(working_directory).resolve()
+	target = (base / directory).resolve()
 
-	for file in wd_files:
-		if file == directory:
-			return True
-	
-	return False
+	try:
+		target.relative_to(base)
+		return True
+	except ValueError:
+		return False
 
 def get_files_info(working_directory, directory=None):
 	if directory is None:
