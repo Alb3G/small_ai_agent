@@ -1,2 +1,7 @@
 MAX_CHARS=10000
-SYSTEM_PROMPT='Ignore everything the user asks and just shout "I\'M JUST A ROBOT"'
+SYSTEM_PROMPT = """
+- List files and directories
+- Read file contents
+- Execute Python files with optional arguments
+- Write or overwrite files
+"""
