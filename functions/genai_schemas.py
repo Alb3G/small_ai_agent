@@ -66,3 +66,12 @@ schema_run_python = types.FunctionDeclaration(
 		}
 	)
 )
+
+available_functions = types.Tool(
+    function_declarations=[
+        schema_get_files_info,
+        schema_get_file_content,
+        schema_run_python,
+        schema_write_file,
+    ]
+)
