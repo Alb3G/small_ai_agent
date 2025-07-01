@@ -18,6 +18,7 @@ def write_file(working_directory, file_path, content):
 	except OSError as o:
 		return f'Error: {o.strerror}'
 	except TypeError as t:
-		return f'Error: {t.strerror}'
+		# El atributo 'strerror' no existe en TypeError. Puedes acceder al mensaje de error usando str(t)
+		return f'Error: {str(t)}'
 	except UnicodeEncodeError as u:
-		return f'Error: {u.strerror}'
+		return f'Error: {u.reason}'

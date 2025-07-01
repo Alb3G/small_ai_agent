@@ -8,7 +8,6 @@ from constants import SYSTEM_PROMPT
 from functions.call_function import call_function
 from constants import MAX_ITERS
 
-
 def main():
     load_dotenv()
 
